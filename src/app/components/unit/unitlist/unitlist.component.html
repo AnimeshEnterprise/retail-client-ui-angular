@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()" #unitForm="ngForm">
+	<div class="form-row">
+		<div class="row col-md-3 mb-3">
+			<label for="unitName" class="col-auto">Unit Name</label>
+			<div class="col">
+				<input type="text" [(ngModel)]="unit.unitName" class="col form-control form-control-sm"
+					id="unitName" name="unitName" placeholder="Unit Name" required #unitName="ngModel">
+			</div>
+		</div>
+		<div class="row col-md-3 mb-3">
+			<button type="submit" [disabled]="!unitForm.form.valid" class="btn btn-info ml-auto" >Save</button>
+		</div>
+	</div>
+</form>
+<table class="table table-bordered table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Unit Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let unit of units; let i = index">
+			<td>{{ i+1 }}</td>
+			<td>{{ unit.unitName }}</td>
+		</tr>
+	</tbody>
+</table>

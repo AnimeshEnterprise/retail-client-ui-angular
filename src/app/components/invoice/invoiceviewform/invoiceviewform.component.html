@@ -1,0 +1,107 @@
+<div class="form-row">
+	<div class="row col-md-6 mb-3">
+		<label for="orderByName" class="col-auto">Order By Name</label>
+		<div class="col">
+			<input type="text" [(ngModel)]="invoice.orderByName" class="col form-control form-control-sm"
+				id="orderByName" name="orderByName" placeholder="Order By Name" required #orderByName="ngModel"
+				disabled="true">
+		</div>
+	</div>
+	<div class="row col-md-6 mb-3">
+		<label for="invoiceNumber" class="col-auto">Invoice Number</label>
+		<div class="col">
+			<input type="text" [(ngModel)]="invoice.invoiceNumber" class="col form-control form-control-sm"
+				disabled="true" id="invoiceNumber" name="invoiceNumber" placeholder="Invoice Number" required
+				#invoiceNumber="ngModel">
+		</div>
+	</div>
+</div>
+<div class="form-row">
+	<div class="row col-md-6 mb-3">
+		<label for="orderByAddress" class="col-auto">Order By Address</label>
+		<div class="col">
+			<input type="text" [(ngModel)]="invoice.orderByAddress" class="col form-control form-control-sm"
+				disabled="true" id="orderByAddress" name="orderByAddress" placeholder="Order By Address" required
+				#orderByAddress="ngModel">
+		</div>
+	</div>
+	<div class="row col-md-6 mb-3">
+		<label for="createdDate" class="col-auto">Created Date</label>
+		<div class="col">
+			<input type="date" [(ngModel)]="invoice.createdDate" value="invoice.createdDate"
+				class="col form-control form-control-sm" disabled="true" id="createdDate" name="createdDate" required
+				#createdDate="ngModel">
+		</div>
+	</div>
+</div>
+<div class="form-row">
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Product Name</th>
+				<th scope="col">HS Code</th>
+				<th scope="col">Quantity</th>
+				<th scope="col">Unit</th>
+				<th scope="col">Unit Price</th>
+				<th scope="col">Sub Toal</th>
+				<th scope="col">Tax</th>
+				<th scope="col">Grand Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let invoiceLine of invoice.invoiceLines; let i = index">
+				<td>{{ i+1 }}</td>
+				<td>
+					<input type="text" [(ngModel)]="invoiceLine.productName" class="col form-control form-control-sm"
+					id="productName{{i}}" name="productName{{i}}" required disabled
+					#productName="ngModel">
+				</td>
+				<td><input type="text" [(ngModel)]="invoiceLine.hscode" class="col form-control form-control-sm"
+					id="hscode{{i}}" name="hscode{{i}}" required disabled
+					#hscode="ngModel">
+				</td>
+				<td><input type="text" [(ngModel)]="invoiceLine.quantity" class="col form-control form-control-sm"
+						disabled="true" id="quantity{{i}}" name="quantity{{i}}" required #quantity="ngModel">
+				</td>
+				<td> <input type="text" [(ngModel)]="invoiceLine.unitName" class="col form-control form-control-sm"
+						disabled="true" id="unit{{i}}" name="unit{{i}}" required #unit="ngModel">
+				</td>
+				<td> <input type="text" [(ngModel)]="invoiceLine.unitPrice" class="col form-control form-control-sm"
+						disabled="true" id="unitPrice{{i}}" name="unitPrice{{i}}" required #unitPrice="ngModel">
+				</td>
+				<td> <input type="text" [(ngModel)]="invoiceLine.subTotal" class="col form-control form-control-sm"
+						disabled="true" id="subTotal{{i}}" name="subTotal{{i}}" required #subTotal="ngModel">
+				</td>
+				<td> <input type="text" [(ngModel)]="invoiceLine.tax" class="col form-control form-control-sm"
+						disabled="true" id="tax{{i}}" name="tax{{i}}" required #tax="ngModel">
+				</td>
+				<td> <input type="text" [(ngModel)]="invoiceLine.grandTotal" class="col form-control form-control-sm"
+						disabled="true" id="grandTotal{{i}}" name="grandTotal{{i}}" required #grandTotal="ngModel">
+				</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<input type="text" [(ngModel)]="invoice.subTotal" class="col form-control form-control-sm" id="tax"
+						disabled name="tax" required #tax="ngModel">
+				</td>
+				<td>
+					<input type="text" [(ngModel)]="invoice.tax" class="col form-control form-control-sm" id="subTotal"
+						disabled name="subTotal" required #subTotal="ngModel">
+				</td>
+				<td>
+					<input type="text" [(ngModel)]="invoice.grandTotal" class="col form-control form-control-sm"
+						disabled id="grandTotal" name="grandTotal" required #grandTotal="ngModel">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<button type="submit" [routerLink]="['editinvoice']" routerLinkActive="router-link-active" class="btn btn-info">Edit
+	Invoice</button>

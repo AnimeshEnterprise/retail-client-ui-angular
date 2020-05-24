@@ -1,0 +1,18 @@
+<table class="table table-bordered table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Brand Name</th>
+			<th scope="col">Product Name</th>
+			<th scope="col">HS Code</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let product of products; let i = index">
+			<td>{{ i+1 }}</td>
+			<td>{{ product.brandName}}</td>
+			<td>{{ product.productName }}</td>
+			<td>{{ product.hscode}}</td>
+		</tr>
+	</tbody>
+</table>

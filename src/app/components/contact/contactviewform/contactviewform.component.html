@@ -1,0 +1,34 @@
+<div class="form-row">
+	<div class="row col-md-6 mb-3">
+		<label for="contactFName" class="col-auto">First Name</label>
+		<div class="col">
+			<input type="text" [(ngModel)]="contact.contactFName" class="col form-control form-control-sm"
+				id="contactFName" name="contactFName" placeholder="First Name" disabled required #contactFName="ngModel">
+		</div>
+	</div>
+	<div class="row col-md-6 mb-3">
+		<label for="contactLName" class="col-auto">Last Name</label>
+		<div class="col">
+			<input type="text" [(ngModel)]="contact.contactLName" class="col form-control form-control-sm"
+				id="contactLName" name="contactLName" placeholder="Last Name" disabled required #contactLName="ngModel">
+		</div>
+	</div>
+</div>
+<div class="form-row">
+	<div class="row col-md-6 mb-3">
+		<label for="contactFullName" class="col-auto">Full Name</label>
+		<div class="col">
+			<input type="text" [(ngModel)]="contact.contactFullName" class="col form-control form-control-sm"
+				id="contactFullName" name="contactFullName" placeholder="Full Name" disabled required #contactFullName="ngModel">
+		</div>
+	</div>
+	<div class="row col-md-6 mb-3">
+		<label for="address" class="col-auto">Address</label>
+		<div class="col">
+			<textarea type="text" [(ngModel)]="contact.address" class="col form-control form-control-sm" id="address"
+				name="address" placeholder="Address" required #address="ngModel" disabled></textarea>
+		</div>
+	</div>
+</div>
+<button type="submit" [routerLink]="['editcontact']"
+routerLinkActive="router-link-active" class="btn btn-info">Edit Contact</button>

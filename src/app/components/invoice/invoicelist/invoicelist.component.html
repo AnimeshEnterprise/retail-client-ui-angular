@@ -1,0 +1,26 @@
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Invoice No</th>
+      <th scope="col">Order By</th>
+      <th scope="col">Total</th>
+      <th scope="col">Created Date</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let invoice of invoices; let i = index">
+      <td>{{ i+1 }}</td>
+      <td>{{ invoice.invoiceNumber}}</td>
+      <td>{{ invoice.orderByName }}</td>
+      <td>{{ invoice.grandTotal}}</td>
+      <td>{{ invoice.createdDate | date:'longDate' }}</td>
+      <td><a [routerLink]="['viewinvoice', invoice.id]" routerLinkActive="router-link-active"><i class="far fa-eye"
+            aria-hidden="true"></i></a></td>
+      <td><a [routerLink]="['editinvoice', invoice.id]" routerLinkActive="router-link-active"><i class="fa fa-edit"
+            aria-hidden="true"></i></a></td>
+    </tr>
+  </tbody>
+</table>
